@@ -102,5 +102,8 @@
       "path": "dist/index.js",
       "limit": "2 KB"
     }
-  ]
+  ],
+  "dependencies": {
+    "mime-types": "^2.1.27"
+  }
 }

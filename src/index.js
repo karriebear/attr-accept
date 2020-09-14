@@ -1,3 +1,5 @@
+import MimeTypes from 'mime-types'
+
 /**
  * Check if the provided file type should be accepted by the input with accept attribute.
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-accept
@@ -15,7 +17,7 @@ export default function(file, acceptedFiles) {
       ? acceptedFiles
       : acceptedFiles.split(',')
     const fileName = file.name || ''
-    const mimeType = (file.type || '').toLowerCase()
+    const mimeType = MimeTypes.lookup(file.type) || ''
     const baseMimeType = mimeType.replace(/\/.*$/, '')
 
     return acceptedFilesArray.some(type => {
